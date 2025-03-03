@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Your Company Name</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header with Menu Bar -->
+  <header>
+    <div class="container">
+      <!-- Logo in the Menu Bar -->
+      <div class="logo">
+        <img src="images/logo.png" alt="Company Logo">
+      </div>
+      <!-- Navigation Menu -->
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="Categories.html">Categories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner Section with Multiple Images -->
+  <section class="banner">
+    <div class="banner-slide">
+  <div class="slide">
+    <img src="images/banner1.jpg" alt="Banner 1">
+    <div class="caption">Caption for Banner 1</div>
+  </div>
+  <div class="slide">
+    <img src="images/banner2.jpg" alt="Banner 2">
+    <div class="caption">Caption for Banner 2</div>
+  </div>
+  <div class="slide">
+    <img src="images/banner3.jpg" alt="Banner 3">
+    <div class="caption">Caption for Banner 3</div>
+  </div>
+  <div class="slide">
+    <img src="images/banner4.jpg" alt="Banner 4">
+    <div class="caption">Caption for Banner 4</div>
+  </div>
+  <div class="slide">
+    <img src="images/banner5.jpg" alt="Banner 5">
+    <div class="caption">Caption for Banner 5</div>
+  </div>
+</div>
+    <!-- Navigation Dots -->
+    <div class="banner-dots">
+  <span class="dot active" data-slide="0"></span>
+  <span class="dot" data-slide="1"></span>
+  <span class="dot" data-slide="2"></span>
+  <span class="dot" data-slide="3"></span>
+  <span class="dot" data-slide="4"></span>
+</div>
+    <!-- Banner Content -->
+    <div class="banner-content">
+      <h2>Welcome to Lightway International</h2>
+      <p>We provide innovative Hospitality solutions tailored to your needs.</p>
+      <a href="Categories.html" class="btn">Explore Our Categories</a>
+    </div>
+  </section>
+
+  <!-- Service Section -->
+  <section class="services">
+    <div class="container">
+      <h2>Our Product Categories</h2>
+      <div class="service-list">
+        <div class="service-item">
+          <img src="images/service1-icon.png" alt="Service 1 Icon">
+          <h3>Service 1</h3>
+          <p>Description of Service 1. We provide the best solutions for your needs.</p>
+        </div>
+        <div class="service-item">
+          <img src="images/service2-icon.png" alt="Service 2 Icon">
+          <h3>Service 2</h3>
+          <p>Description of Service 2. We provide the best solutions for your needs.</p>
+        </div>
+        <div class="service-item">
+          <img src="images/service3-icon.png" alt="Service 3 Icon">
+          <h3>Service 3</h3>
+          <p>Description of Service 3. We provide the best solutions for your needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Your Company Name. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Banner Slider -->
+  <script>
+    const dots = document.querySelectorAll('.dot');
+    const slides = document.querySelectorAll('.slide');
+    const bannerSlide = document.querySelector('.banner-slide');
+    let currentSlide = 0;
+
+    // Function to show a specific slide
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.opacity = i === index ? 1 : 0;
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    // Event listeners for dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+      });
+    });
+
+    // Auto-rotate slides
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }, 5000); // Change slide every 5 seconds
+  </script>
+</body>
+</html>
