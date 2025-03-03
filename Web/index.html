@@ -104,6 +104,28 @@
     const bannerSlide = document.querySelector('.banner-slide');
     let currentSlide = 0;
 
+// Sticky Navigation Bar
+const header = document.querySelector('header');
+const banner = document.querySelector('.banner');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > banner.offsetHeight) {
+    header.classList.add('sticky');
+  } else {
+    header.classList.remove('sticky');
+  }
+});
+
+// Smooth Scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
     // Function to show a specific slide
     function showSlide(index) {
       slides.forEach((slide, i) => {
