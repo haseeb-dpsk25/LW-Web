@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Lightway International</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="smoother-wrapper">
+    <div id="smoother-content">
+      <!-- Header -->
+      <header>
+        <div class="container">
+          <div class="logo">
+            <img src="images/logo.png" alt="Lightway International Logo">
+          </div>
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="Categories.html">Categories</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Banner Section -->
+      <section class="banner" aria-label="Banner Slider">
+        <div class="banner-slide">
+          <div class="slide" aria-hidden="false">
+            <img src="images/banner1.jpg" alt="Banner 1 Description" loading="lazy" data-speed="0.5">
+            <div class="caption">Amenities</div>
+          </div>
+          <div class="slide" aria-hidden="true">
+            <img src="images/banner2.jpg" alt="Banner 2 Description" loading="lazy" data-speed="0.5">
+            <div class="caption">Hospitality</div>
+          </div>
+          <div class="slide" aria-hidden="true">
+            <img src="images/banner3.jpg" alt="Banner 3 Description" loading="lazy" data-speed="0.5">
+            <div class="caption">Luxury Amenities</div>
+          </div>
+          <div class="slide" aria-hidden="true">
+            <img src="images/banner4.jpg" alt="Banner 4 Description" loading="lazy" data-speed="0.5">
+            <div class="caption">Classic Dining wares</div>
+          </div>
+          <div class="slide" aria-hidden="true">
+            <img src="images/banner5.jpg" alt="Banner 5 Description" loading="lazy" data-speed="0.5">
+            <div class="caption">Amenities collections</div>
+          </div>
+        </div>
+        <!-- Navigation Dots -->
+        <div class="banner-dots">
+          <button class="dot active" data-slide="0" aria-label="Slide 1"></button>
+          <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+          <button class="dot" data-slide="2" aria-label="Slide 3"></button>
+          <button class="dot" data-slide="3" aria-label="Slide 4"></button>
+          <button class="dot" data-slide="4" aria-label="Slide 5"></button>
+        </div>
+        <!-- Banner Content -->
+        <div class="banner-content">
+          <h2>Welcome to Lightway International</h2>
+          <p>We provide innovative Hospitality solutions tailored to your needs.</p>
+          <a href="Categories.html" class="btn">Explore Our Categories</a>
+        </div>
+      </section>
+
+      <!-- Categories Section -->
+      <section class="services">
+        <div class="container">
+          <h2>Our Product Categories</h2>
+          <div class="service-list">
+            <!-- Add service items as needed -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="testimonials">
+        <div class="container">
+          <h2>What Our Clients Say</h2>
+          <div class="testimonial-list">
+            <!-- Add testimonial items as needed -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Client Logo Ribbon -->
+      <section class="client-ribbon" aria-label="Client Logos">
+        <div class="ribbon-container">
+          <div class="ribbon-track">
+            <div class="ribbon-slide">
+              <img src="images/client1.png" alt="Client 1 Logo" loading="lazy">
+              <img src="images/client2.png" alt="Client 2 Logo" loading="lazy">
+              <img src="images/client3.png" alt="Client 3 Logo" loading="lazy">
+              <img src="images/client4.png" alt="Client 4 Logo" loading="lazy">
+              <img src="images/client5.png" alt="Client 5 Logo" loading="lazy">
+              <img src="images/client6.png" alt="Client 6 Logo" loading="lazy">
+              <img src="images/client7.png" alt="Client 7 Logo" loading="lazy">
+              <img src="images/client8.png" alt="Client 8 Logo" loading="lazy">
+            </div>
+            <!-- Duplicate the slide for infinite scrolling effect -->
+            <div class="ribbon-slide">
+              <img src="images/client1.png" alt="Client 1 Logo" loading="lazy">
+              <img src="images/client2.png" alt="Client 2 Logo" loading="lazy">
+              <img src="images/client3.png" alt="Client 3 Logo" loading="lazy">
+              <img src="images/client4.png" alt="Client 4 Logo" loading="lazy">
+              <img src="images/client5.png" alt="Client 5 Logo" loading="lazy">
+              <img src="images/client6.png" alt="Client 6 Logo" loading="lazy">
+              <img src="images/client7.png" alt="Client 7 Logo" loading="lazy">
+              <img src="images/client8.png" alt="Client 8 Logo" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <div class="container">
+          <p>&copy; 2023 Lightway International. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- GSAP and ScrollSmoother Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollSmoother.min.js"></script>
+  <script>
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+    // Initialize ScrollSmoother
+    ScrollSmoother.create({
+      wrapper: "#smoother-wrapper",
+      content: "#smoother-content",
+      smooth: 1.5, // Smoothness of the scroll (in seconds)
+      effects: true, // Enable effects like parallax
+    });
+
+    // Banner Slider Functionality
+    const dots = document.querySelectorAll('.dot');
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.opacity = i === index ? 1 : 0;
+        slide.setAttribute('aria-hidden', i !== index);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+      });
+    });
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }, 5000); // Change slide every 5 seconds
+
+    // ScrollTrigger Animations
+    gsap.from(".service-item", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".services",
+        start: "top 80%",
+      },
+    });
+
+    gsap.from(".testimonial-item", {
+      opacity: 0,
+      scale: 0.8,
+      duration: 1,
+      stagger: 0.3,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".testimonials",
+        start: "top 80%",
+      },
+    });
+
+    // Infinite Client Logo Ribbon Animation
+    gsap.to(".ribbon-track", {
+      xPercent: -50,
+      duration: 20,
+      repeat: -1,
+      ease: "linear",
+    });
+  </script>
+</body>
+</html>
